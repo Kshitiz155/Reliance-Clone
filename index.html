@@ -1,58 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline Electronics</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .nav{
-            display:flex;
-            background-color: rgb(242, 7, 7);
-            padding:7px 25px 7px 45px;
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        /**********************************************Nav Bar*****************************************************/
+        .nav {
+            display: flex;
+            background-color: rgb(226, 56, 56);
+            padding: 7px 25px 7px 45px;
             color: aliceblue;
             justify-content: space-between;
             align-items: center;
+            
+            
         }
-        #logo img{
-          width:100px;
-          border-radius: 50px;
+        .nav2{
+            
+            background-color: rgb(6, 6, 168);
+            height:35px;
         }
-        #link{
-           width:40%;
-           display:flex;
-           justify-content: space-around;
-           
+        #logo img {
+            width: 100px;
+            border-radius: 50px;
         }
-        #link a{
+
+        #link {
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #link a {
             text-decoration: none;
-            color:rgb(238, 239, 230);
+            color: rgb(238, 239, 230);
             font-size: 25px;
-        }   
-        #input{
-            width:300px;
-            height:31px;
+        }
+
+        #input {
+            width: 300px;
+            height: 30px;
             border-radius: 6px;
         }
 
+        /****************************************************grid Content******************************************************/
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+
+        }
+
+        .container>div {
+            width: 100%;
+            padding: 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 15px;
+        }
+
+        .container>div>button {
+            display: block;
+            margin: auto;
+            background-color: rgb(228, 179, 118);
+            border: none;
+            padding: 6px;
+            border-radius: 5px;
+
+        }
+
+        .container>div>h2 {
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        /* .container>div>h3 {
+            color: goldenrod;
+        } */
+        .container>div>h4 {
+            color: rgb(210, 153, 8)
+        }
+        .container>div>h5 {
+            color: rgb(108, 99, 99);
+        }
+        
+        /*********************************************slideshow content*******************************************************/
+        #slideshow {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 7px;
+        }
+        #slideshow2 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
+
 <body>
     <div class="nav">
         <div id="logo">
             <img src=".\images\Skyline Electronics.png" alt="img">
         </div>
         <div id="search">
-            <input id="input"type="text"placeholder="tv,mobile,gadgets,etc">
+            <input id="input" type="text" placeholder="tv,mobile,gadgets,etc">
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div id="link">
-            <a  href="login.html">Log in</a>
+            <a href="login.html">Log in</a>
+            <a href="Signup.html">Sign up</a>
             <a href="cart.html">Cart Details</a>
             <a href="order.html">Order Details</a>
         </div>
     </div>
+    <div class="nav2"></div>
     
+    <div id="slideshow">
+    </div>
+    <div id="slideshow2">
+    </div>
+
+    <div class="container">
+    </div>
+
 </body>
+
+<script>
+
+    function slideshowFun(images) {
+        let div = document.getElementById('slideshow');
+        div.innerHTML = ""
+        let img = document.createElement('img');
+        img.src = images
+        div.append(img)
+    }
+
+
+    var Images = [
+        "https://www.reliancedigital.in/medias/GOVO-Soundbars-Carousel-Banner-23-03-2023.jpg?context=bWFzdGVyfGltYWdlc3w5NzAzMHxpbWFnZS9qcGVnfGltYWdlcy9oZWYvaDg0Lzk5NzMyNzg5OTg1NTguanBnfGZjZWYzN2MyMzQyYjIxMGI3MGU4NThiMDZkNmQ2ZDAwZTYyMjc5YWMwZDk3M2I3ZDgzN2NkOThkNzU0YmYwZWU",
+        "https://www.reliancedigital.in/medias/AC-Chill-Fest-Carousel-Banner-24-02-2023.jpg?context=bWFzdGVyfGltYWdlc3w5MTE5M3xpbWFnZS9qcGVnfGltYWdlcy9oZWYvaDViLzk5NjU0ODY4NjY0NjIuanBnfGFiOTM5NjlmODJmY2RiYmZiZTU2ZjIzMjQ4MGU3ZWU1ZDllMjY2MTU5NmMxZWEyNTllOGIxMTBjNDUwZTg5NmQ",
+        "https://www.reliancedigital.in/medias/TVs-CLP-Banner-21-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMTYwMjd8aW1hZ2UvanBlZ3xpbWFnZXMvaGE2L2gzNy85OTcyODY2NzExNTgyLmpwZ3wyMjc0YWM4OWQ5Y2E4NzFlYjI3YmFhZTViZjAwNWVmNjk5MTRjYTM3MzljMmVkNzk1MDljMjAyZjFiNDYyNDFk",
+        "https://www.reliancedigital.in/medias/Premium-Audio-CLP-Banner-01-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMTY4MTJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDc2L2gwNy85OTcwMDgzNDYzMTk4LmpwZ3w0OWJjMjdkY2ZkM2ExZmNkZDQ5YTk0Y2UyNzgwMDBmM2NmNjZlMzhjYzJhNWU1MjRkZGFiYzVmZWZmYmIyYmM4",
+        "https://www.reliancedigital.in/medias/Smart-Home-Devices-Carousel-Banner-20-03-2023.jpg?context=bWFzdGVyfGltYWdlc3w3MzU3N3xpbWFnZS9qcGVnfGltYWdlcy9oZjEvaGJjLzk5NzI2Nzc1NzQ2ODYuanBnfDI5YzRlN2U3MjlkZmJkMzViNjI4ZDNjNTEzMWU3OTE2OGQzNzc4NGJhZDIxMGI0OTk4ZTg2OTVkYmY4NDcwOTA"
+    ]
+
+
+    window.addEventListener("load", function () {
+
+        let index = 0;
+
+        slideshowFun(Images[index])
+
+        setInterval(() => {
+            index++
+            if (index > 4) {
+                index = 0;
+            }
+            slideshowFun(Images[index])
+        }, 2500)
+
+    });
+
+    function slideshowFun2(images) {
+        let div = document.getElementById('slideshow2');
+        div.innerHTML = ""
+        let img = document.createElement('img');
+        img.src = images
+        div.append(img)
+    }
+
+
+    var Images2 = [
+        "https://www.reliancedigital.in/medias/IPL-Carousel-Banner-27-03-2023-02.jpg?context=bWFzdGVyfGltYWdlc3wxMDA2MzN8aW1hZ2UvanBlZ3xpbWFnZXMvaDkzL2g2NC85OTc1MTg0NDU3NzU4LmpwZ3w4NWE3YzU0Y2Q5ZGNhNzE2ZjA2MzZlZDIzYjA4NTljZWIyMzYwOWYwOThmZTQyMjE2NjdmNDEyODQ0MjIwYWMy",
+        "https://www.reliancedigital.in/medias/MIdnight-Sale-Carousel-D.jpg?context=bWFzdGVyfGltYWdlc3w5OTU3OXxpbWFnZS9qcGVnfGltYWdlcy9oZjUvaGRiLzk5MjgzODAyMTk0MjIuanBnfDU0Y2FhNjUwZjVhZWNmZWI0NGNmNDY3NzAzNDE3ZDkxOWIxMzQzMWZmZDVjZGMzM2Q2YzBiOThhYzBkMTg1MjQ",
+         "https://www.reliancedigital.in/medias/SanDisk-World-Back-Up-Day-Carousel-Banner-20-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDg3OTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDc0L2gyYS85OTczNzI2MzE0NTI2LmpwZ3xiZjVmMWRmMWNiNmMzMzAxYzhiNTFkZWI1YTc3ZTAyODk4NWJjZGRiMDBmNzBiNzQxYWEwZjEzNmNhMmUwY2Qx",
+         "https://www.reliancedigital.in/medias/AMD-Carousel-Banner-22-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wyMzIzMjN8aW1hZ2UvanBlZ3xpbWFnZXMvaDQ5L2gwNS85OTcyODY5MjY3NDg2LmpwZ3xmNDYyN2ZkYTlmYWI4M2M5NjIxODEyYjFiYjdjNTc1M2Y3YzBhNDUyNmU1ZTQ0NzQ1NjJlNzYxNWJiYmI2YmZi",
+         "https://www.reliancedigital.in/medias/5G-Smartphones-Carousel-Banner-24-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDI0NjZ8aW1hZ2UvanBlZ3xpbWFnZXMvaGY0L2g4Yy85OTc0MzI5MTgwMTkwLmpwZ3xiYjhmNjhlZTc0ZWNhYTk4NmM5NDRmZGNjMTQ2YTJjYWM2NzIyOTJiYTAzYTM4ZWFmZDMzM2U3Nzc5YjY4NjBk"
+    ]
+
+
+    window.addEventListener("load", function () {
+
+        let index = 0;
+
+        slideshowFun2(Images2[index])
+
+        setInterval(() => {
+            index++
+            if (index > 4) {
+                index = 0;
+            }
+            slideshowFun2(Images2[index])
+        }, 2000)
+
+    });
+
+
+
+    let API = "https://rus-digital-televisions.onrender.com/allproduct";
+
+    let container = document.querySelector(".container");
+
+    let data;
+    async function fetchData() {
+        try {
+            let res = await fetch(API);
+
+            res = await res.json();
+            data = res
+            console.log(data);
+            Display(data);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    fetchData();
+
+    function Display(data) {
+
+        container.innerHTML = "";
+
+        data.forEach((element, index) => {
+
+            console.log(element);
+
+            let card = document.createElement('div');
+            let img = document.createElement('img');
+            let name = document.createElement('h3');
+            let price = document.createElement('h4');
+            let mrp = document.createElement("h5");
+            let addToCart = document.createElement('button');
+
+            img.src = element.img;
+            name.innerText = element.name;
+            price.innerText = `Price- $ ${element.price}`;
+            mrp.innerText = `MRP- $ ${element.mrp}`;
+            addToCart.innerText = "Add To Cart";
+
+
+            card.append(img, name, price, mrp, addToCart);
+
+            container.append(card);
+
+
+        });
+
+
+    }
+</script>
+
 </html>
