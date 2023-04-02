@@ -24,14 +24,16 @@
             color: aliceblue;
             justify-content: space-between;
             align-items: center;
-            
-            
+
+
         }
-        .nav2{
-            
+
+        .nav2 {
+
             background-color: rgb(6, 6, 168);
-            height:35px;
+            height: 35px;
         }
+
         #logo img {
             width: 100px;
             border-radius: 50px;
@@ -61,6 +63,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 12px;
+            text-align: center;
 
         }
 
@@ -92,10 +95,11 @@
         .container>div>h4 {
             color: rgb(210, 153, 8)
         }
+
         .container>div>h5 {
             color: rgb(108, 99, 99);
         }
-        
+
         /*********************************************slideshow content*******************************************************/
         #slideshow {
             width: 100%;
@@ -104,6 +108,7 @@
             align-items: center;
             margin-bottom: 7px;
         }
+
         #slideshow2 {
             width: 100%;
             display: flex;
@@ -131,7 +136,7 @@
         </div>
     </div>
     <div class="nav2"></div>
-    
+
     <div id="slideshow">
     </div>
     <div id="slideshow2">
@@ -190,9 +195,9 @@
     var Images2 = [
         "https://www.reliancedigital.in/medias/IPL-Carousel-Banner-27-03-2023-02.jpg?context=bWFzdGVyfGltYWdlc3wxMDA2MzN8aW1hZ2UvanBlZ3xpbWFnZXMvaDkzL2g2NC85OTc1MTg0NDU3NzU4LmpwZ3w4NWE3YzU0Y2Q5ZGNhNzE2ZjA2MzZlZDIzYjA4NTljZWIyMzYwOWYwOThmZTQyMjE2NjdmNDEyODQ0MjIwYWMy",
         "https://www.reliancedigital.in/medias/MIdnight-Sale-Carousel-D.jpg?context=bWFzdGVyfGltYWdlc3w5OTU3OXxpbWFnZS9qcGVnfGltYWdlcy9oZjUvaGRiLzk5MjgzODAyMTk0MjIuanBnfDU0Y2FhNjUwZjVhZWNmZWI0NGNmNDY3NzAzNDE3ZDkxOWIxMzQzMWZmZDVjZGMzM2Q2YzBiOThhYzBkMTg1MjQ",
-         "https://www.reliancedigital.in/medias/SanDisk-World-Back-Up-Day-Carousel-Banner-20-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDg3OTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDc0L2gyYS85OTczNzI2MzE0NTI2LmpwZ3xiZjVmMWRmMWNiNmMzMzAxYzhiNTFkZWI1YTc3ZTAyODk4NWJjZGRiMDBmNzBiNzQxYWEwZjEzNmNhMmUwY2Qx",
-         "https://www.reliancedigital.in/medias/AMD-Carousel-Banner-22-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wyMzIzMjN8aW1hZ2UvanBlZ3xpbWFnZXMvaDQ5L2gwNS85OTcyODY5MjY3NDg2LmpwZ3xmNDYyN2ZkYTlmYWI4M2M5NjIxODEyYjFiYjdjNTc1M2Y3YzBhNDUyNmU1ZTQ0NzQ1NjJlNzYxNWJiYmI2YmZi",
-         "https://www.reliancedigital.in/medias/5G-Smartphones-Carousel-Banner-24-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDI0NjZ8aW1hZ2UvanBlZ3xpbWFnZXMvaGY0L2g4Yy85OTc0MzI5MTgwMTkwLmpwZ3xiYjhmNjhlZTc0ZWNhYTk4NmM5NDRmZGNjMTQ2YTJjYWM2NzIyOTJiYTAzYTM4ZWFmZDMzM2U3Nzc5YjY4NjBk"
+        "https://www.reliancedigital.in/medias/SanDisk-World-Back-Up-Day-Carousel-Banner-20-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDg3OTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDc0L2gyYS85OTczNzI2MzE0NTI2LmpwZ3xiZjVmMWRmMWNiNmMzMzAxYzhiNTFkZWI1YTc3ZTAyODk4NWJjZGRiMDBmNzBiNzQxYWEwZjEzNmNhMmUwY2Qx",
+        "https://www.reliancedigital.in/medias/AMD-Carousel-Banner-22-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wyMzIzMjN8aW1hZ2UvanBlZ3xpbWFnZXMvaDQ5L2gwNS85OTcyODY5MjY3NDg2LmpwZ3xmNDYyN2ZkYTlmYWI4M2M5NjIxODEyYjFiYjdjNTc1M2Y3YzBhNDUyNmU1ZTQ0NzQ1NjJlNzYxNWJiYmI2YmZi",
+        "https://www.reliancedigital.in/medias/5G-Smartphones-Carousel-Banner-24-03-2023.jpg?context=bWFzdGVyfGltYWdlc3wxMDI0NjZ8aW1hZ2UvanBlZ3xpbWFnZXMvaGY0L2g4Yy85OTc0MzI5MTgwMTkwLmpwZ3xiYjhmNjhlZTc0ZWNhYTk4NmM5NDRmZGNjMTQ2YTJjYWM2NzIyOTJiYTAzYTM4ZWFmZDMzM2U3Nzc5YjY4NjBk"
     ]
 
 
@@ -217,7 +222,7 @@
     let API = "https://rus-digital-televisions.onrender.com/allproduct";
 
     let container = document.querySelector(".container");
-
+    let cartData = JSON.parse(localStorage.getItem("cart")) || [];
     let data;
     async function fetchData() {
         try {
@@ -240,7 +245,7 @@
 
         data.forEach((element, index) => {
 
-            console.log(element);
+            //  console.log(element);
 
             let card = document.createElement('div');
             let img = document.createElement('img');
@@ -255,6 +260,17 @@
             mrp.innerText = `MRP- $ ${element.mrp}`;
             addToCart.innerText = "Add To Cart";
 
+            addToCart.addEventListener("click", function () {
+                if (checkAvailable(element)) {
+                    alert("Product Already added to Cart")
+                }
+                else {
+                    cartData.push({ ...element, quantity: 1 });
+
+                    localStorage.setItem("cart", JSON.stringify(cartData));
+                    alert("Product Added To Cart");
+                }
+            });
 
             card.append(img, name, price, mrp, addToCart);
 
@@ -264,6 +280,14 @@
         });
 
 
+    }
+    function checkAvailable(element) {
+        for (let i = 0; i < cartData.length; i++) {
+            if (element.id === cartData[i].id) {
+                return true;
+            }
+        }
+        return false;
     }
 </script>
 
