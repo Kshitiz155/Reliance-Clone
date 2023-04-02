@@ -110,6 +110,7 @@
             background: whitesmoke;
             color: #fff;
         }
+        
     </style>
 </head>
 
@@ -159,7 +160,7 @@
                 user_password: pass
             }
             result.push(obj);
-            //console.log(result);
+            console.log(result);
             localStorage.setItem("user_data",JSON.stringify(result));
 
             window.location.href = "http://127.0.0.1:5500/login.html";

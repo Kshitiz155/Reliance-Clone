@@ -99,6 +99,45 @@
         .container>div>h5 {
             color: rgb(108, 99, 99);
         }
+
+        /* media query */
+        @media only screen and (max-width: 800px) {
+            .nav> :nth-last-child(2) {
+                display: none;
+            }
+            .nav> #search {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+
+            }
+
+        }
+
+        @media only screen and (max-width: 500px) {
+            /* Small Screen  */
+
+            /* .nav> :nth-last-child(2) {
+                display: none;
+            } */
+            .nav> #search {
+                display: none;
+            }
+
+
+            .container {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+
+            }
+        }
     </style>
 </head>
 
@@ -135,7 +174,9 @@
 
     let container = document.querySelector(".container");
     let cartData = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log(cartData);
+    let orderData = JSON.parse(localStorage.getItem("order")) || [];
+
+    // console.log(cartData);
 
     function Display(cartData) {
 
@@ -159,6 +200,7 @@
 
 
 
+
             img.src = element.img;
             name.innerText = element.name;
             price.innerText = `Price- $ ${element.price}`;
@@ -168,6 +210,12 @@
             quantity.innerText = element.quantity;
             remove.innerText = "Remove";
             buynow.innerText = "Buy Now";
+
+            buynow.addEventListener('click', function () {
+                orderData.push(element);
+                localStorage.setItem("order", JSON.stringify(orderData));
+                console.log(orderData);
+            });
 
             remove.addEventListener('click', function () {
 
