@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline Electronics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        /**********************************************Nav Bar*****************************************************/
+        .nav {
+            display: flex;
+            background-color: rgb(226, 56, 56);
+            padding: 7px 25px 7px 45px;
+            color: aliceblue;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        .nav2 {
+
+            background-color: rgb(6, 6, 168);
+            height: 35px;
+        }
+
+        #logo img {
+            width: 100px;
+            border-radius: 50px;
+        }
+
+        #link {
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #link a {
+            text-decoration: none;
+            color: rgb(238, 239, 230);
+            font-size: 25px;
+        }
+
+        #input {
+            width: 300px;
+            height: 30px;
+            border-radius: 6px;
+        }
+
+        /****************************************************grid Content******************************************************/
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            text-align: center;
+
+        }
+
+        .container>div {
+            width: 100%;
+            padding: 8px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 15px;
+        }
+
+        .container>div>button {
+            display: block;
+            margin: auto;
+            background-color: rgb(228, 179, 118);
+            border: none;
+            padding: 6px;
+            border-radius: 5px;
+
+        }
+
+        .container>div>h2 {
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        /* .container>div>h3 {
+            color: goldenrod;
+        } */
+        .container>div>h4 {
+            color: rgb(210, 153, 8)
+        }
+
+        .container>div>h5 {
+            color: rgb(108, 99, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div id="logo">
+            <img src=".\images\Skyline Electronics.png" alt="img">
+        </div>
+        <div id="search">
+            <input id="input" type="text" placeholder="tv,mobile,gadgets,etc">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div id="link">
+            <a href="index.html">Home</a>
+            <a href="login.html">Log in</a>
+            <a href="Signup.html">Sign up</a>
+            <a href="cart.html">Cart Details</a>
+            <a href="order.html">Order Details</a>
+        </div>
+    </div>
+    <div class="nav2"></div>
+    <!-- <h1 id="total">Your Total cart Price is:- <span id="cart-total">0</span></h1> -->
+
+
+
+    <div class="container">
+    </div>
+
+</body>
+
+<script>
+
+
+
+    let container = document.querySelector(".container");
+    let cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    console.log(cartData);
+
+    function Display(cartData) {
+
+        container.innerHTML = "";
+
+        cartData.forEach((element, index) => {
+
+            //  console.log(element);
+
+            let card = document.createElement('div');
+            let img = document.createElement('img');
+            let name = document.createElement('h3');
+            let price = document.createElement('h4');
+            let mrp = document.createElement("h5");
+            let increment = document.createElement('button');
+            let quantity = document.createElement('span');
+            let decrement = document.createElement('button');
+            let buynow = document.createElement('button');
+            let remove = document.createElement('button');
+
+
+
+
+            img.src = element.img;
+            name.innerText = element.name;
+            price.innerText = `Price- $ ${element.price}`;
+            mrp.innerText = `MRP- $ ${element.mrp}`;
+            increment.innerText = "+";
+            decrement.innerText = "-";
+            quantity.innerText = element.quantity;
+            remove.innerText = "Remove";
+            buynow.innerText = "Buy Now";
+
+            remove.addEventListener('click', function () {
+
+                cartData.splice(index, 1);
+
+                localStorage.setItem('cart', JSON.stringify(cartData));
+
+                Display(cartData)
+            })
+
+            increment.addEventListener('click', function () {
+
+                element.quantity++;
+
+                localStorage.setItem("cart", JSON.stringify(cartData));
+
+                Display(cartData)
+            })
+
+            decrement.addEventListener("click", function () {
+
+                if (element.quantity > 1) {
+
+                    element.quantity--;
+
+                    localStorage.setItem("cart", JSON.stringify(cartData));
+
+                    Display(cartData)
+                }
+            })
+
+            card.append(img, name, price, mrp, increment, quantity, decrement, remove, buynow);
+
+            container.append(card);
+
+
+        });
+
+        // let cartTotal = document.getElementById("cart-total");
+
+        // let sum = 0;
+
+        // for (let i = 0; i < cartData.length; i++) {
+
+        //     sum += cartData[i].quantity * (Number(cartData[i].price));
+
+
+        // }
+        // cartTotal.innerText = sum;
+
+    }
+    Display(cartData);
+
+</script>
+
+</html>
